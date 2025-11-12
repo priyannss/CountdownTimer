@@ -1,0 +1,64 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Letter T made from abstract time shapes -->
+  
+  <!-- Top horizontal bar of T (made from flowing curves) -->
+  <path d="M 40 50 Q 60 40, 80 50 L 120 50 Q 140 40, 160 50" 
+        fill="none" 
+        stroke="url(#mainGradient)" 
+        stroke-width="20" 
+        stroke-linecap="round"
+        filter="url(#shadow)"/>
+  
+  <!-- Vertical stem of T (hourglass/timer shape) -->
+  <path d="M 100 60 
+           L 95 90 
+           Q 92 100, 95 110 
+           L 100 140
+           Q 105 110, 105 90
+           L 100 60 Z" 
+        fill="url(#mainGradient)"
+        filter="url(#shadow)"/>
+  
+  <!-- Bottom flowing element -->
+  <circle cx="100" cy="145" r="12" fill="url(#accentGradient)" opacity="0.8"/>
+  
+  <!-- Decorative dots representing time units -->
+  <circle cx="70" cy="55" r="6" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="130" cy="55" r="6" fill="#ec4899" opacity="0.6"/>
+  
+  <!-- Abstract clock arc -->
+  <path d="M 60 120 Q 70 160, 100 170 Q 130 160, 140 120" 
+        fill="none" 
+        stroke="url(#accentGradient)" 
+        stroke-width="4" 
+        stroke-linecap="round"
+        opacity="0.5"/>
+  
+  <!-- Circular time indicator -->
+  <circle cx="100" cy="100" r="55" 
+          fill="none" 
+          stroke="url(#mainGradient)" 
+          stroke-width="3" 
+          opacity="0.2"
+          stroke-dasharray="10 8"/>
+  
+  <!-- Central accent -->
+  <circle cx="100" cy="78" r="4" fill="white" opacity="0.9"/>
+</svg>

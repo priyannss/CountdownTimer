@@ -62,6 +62,15 @@ const App = () => {
   return (
     <>
       <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden'>
+        {/* Logo - Top Left Corner */}
+        <div className="absolute top-6 left-6 z-20">
+          <img 
+            src="/logo.svg" 
+            alt="Countdown Timer Logo" 
+            className="w-12 h-12 md:w-16 md:h-16 drop-shadow-[0_0_15px_rgba(168,85,247,0.7)] hover:scale-110 transition-transform duration-300 cursor-pointer"
+          />
+        </div>
+
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
