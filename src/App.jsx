@@ -7,6 +7,7 @@ const App = () => {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [totalSeconds, setTotalSeconds] = useState(0);
+  const [showTimesUp, setShowTimesUp] = useState(false);
 
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const App = () => {
         setTotalSeconds(prev => {
           if(prev <= 1) {
             setIsRunning(false);
+            setShowTimesUp(true);
             return 0;
           }
 
@@ -57,11 +59,66 @@ const App = () => {
     setHours(0);
     setMinutes(0);
     setSeconds(0);
+    setShowTimesUp(false);
   }
 
   return (
     <>
       <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden'>
+        
+        {/* Time's Up Overlay */}
+        {showTimesUp && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
+            <div className="relative">
+              {/* Animated rings */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-64 h-64 border-4 border-purple-500/30 rounded-full animate-ping"></div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-96 h-96 border-4 border-pink-500/20 rounded-full animate-pulse"></div>
+              </div>
+              
+              {/* Main message card */}
+              <div className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-purple-700 rounded-3xl p-12 shadow-2xl border-4 border-white/20 animate-scaleIn">
+                <div className="text-center">
+                  {/* Sparkles */}
+                  <div className="flex justify-center mb-6">
+                    <div className="flex gap-4">
+                      <span className="text-6xl animate-sparkle animation-delay-0">✨</span>
+                      <span className="text-6xl animate-sparkle animation-delay-300">⏰</span>
+                      <span className="text-6xl animate-sparkle animation-delay-600">✨</span>
+                    </div>
+                  </div>
+                  
+                  {/* Main text */}
+                  <h2 className="text-6xl md:text-7xl font-black text-white mb-4 animate-bounce-slow">
+                    TIME'S UP!
+                  </h2>
+                  
+                  <p className="text-2xl text-white/90 mb-8 animate-fadeIn animation-delay-500">
+                    Your countdown has ended! 🎉
+                  </p>
+                  
+                  {/* Close button */}
+                  <button
+                    onClick={() => setShowTimesUp(false)}
+                    className="px-8 py-4 bg-white text-purple-600 font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all animate-fadeIn animation-delay-1000"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+              
+              {/* Confetti elements */}
+              <div className="absolute top-0 left-0 w-4 h-4 bg-yellow-400 rounded-full animate-confetti"></div>
+              <div className="absolute top-10 right-10 w-3 h-3 bg-pink-400 rounded-full animate-confetti animation-delay-200"></div>
+              <div className="absolute bottom-20 left-20 w-4 h-4 bg-blue-400 rounded-full animate-confetti animation-delay-400"></div>
+              <div className="absolute top-20 left-1/3 w-3 h-3 bg-green-400 rounded-full animate-confetti animation-delay-600"></div>
+              <div className="absolute bottom-10 right-1/4 w-4 h-4 bg-purple-400 rounded-full animate-confetti animation-delay-800"></div>
+            </div>
+          </div>
+        )}
+
         {/* Logo - Top Left Corner */}
         <div className="absolute top-6 left-6 z-20">
           <img 
